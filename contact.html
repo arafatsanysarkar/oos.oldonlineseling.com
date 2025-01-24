@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<body>
+    <header>
+            <!-- Search Bar and Logo -->
+            <div class="search-section" style="background-color: aqua;">
+                <img src="image.png/logo.png" alt="Logo" class="logo">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for Books, Products..." class="search-bar">
+                    <button class="search-button">Search</button>
+                </div>
+            </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#categories">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="#electronics">Electronics</a></li>
+                </ul>
+            </li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Log In</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>

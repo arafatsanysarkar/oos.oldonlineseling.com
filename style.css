@@ -1,0 +1,165 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+/* Header */
+header {
+    background-image: url('haderimge.jpg'); /* আপনার ইমেজের পথ এখানে দিন */
+    color: #fff;
+    padding: 5px 10px;
+    position: relative; /* হেডারের জন্য relative */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    padding: 5px 10px;
+}
+
+.logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.search-container {
+    display: flex;
+    gap: 5px;
+}
+
+.search-bar {
+    padding: 0.2em;
+    font-size: 0.9em;
+    border: 3px solid #ddb530;
+    border-radius: 3px;
+    flex-grow: 1;
+    resize: horizontal;
+    min-width: 50px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: #0056b3;
+}
+
+/* Navbar */
+.navbar {
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    position: relative; /* ন্যাভবারের জন্য relative */
+    z-index: 999;
+    width: 100%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+.nav-links a:hover {
+    background: #044d9c;
+}
+
+/* Menu Toggle for Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-bar {
+    width: 22px;
+    height: 3px;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #1e7679;
+        width: 150px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Home Section */
+.home-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+}
+
+.home-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.home-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.home-section .btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.home-section .btn:hover {
+    background: #0056b3;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Admission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(152, 245, 245);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            flex-direction: column;
+        }
+
+        .register-container {
+            background-color: rgb(160, 240, 114);
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #copyButton {
+            background-color: #008CBA;
+            margin-top: 10px;
+        }
+
+        #copyButton:hover {
+            background-color: #007bb5;
+        }
+
+        #submitButton:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* How to Register Section */
+        .how-to-register {
+            margin-top: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .how-to-register h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .step p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .register-container, .how-to-register {
+                width: 100%;
+                padding: 15px;
+            }
+
+            h2, .how-to-register h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+<div class="register-container">
+    <h2>Register Form</h2>
+    <form id="admissionForm" onsubmit="return sendEmail()">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="emailFrom">Email (from)</label>
+        <input type="email" id="emailFrom" name="emailFrom" required>
+
+        <label for="emailTo">Email (You email on this account)</label>
+        <input type="email" id="emailTo" name="emailTo" value="arafatsanysarkar@gmail.com" required readonly>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="accountType">Select your account type.</label>
+        <select id="accountType" name="accountType" required>
+            <option value="" disabled selected>Select your account type</option>
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+        </select>
+
+        <button type="submit" id="submitButton" disabled>Submit Form</button>
+    </form>
+
+    <button type="button" id="copyButton" onclick="copyFormData()">Copy Form Data</button>
+
+    <div class="login-link">
+        <p>Already have an account? <a href="login.html">Login here</a> / <a href="index.html">Home</a></p>
+    </div>
+</div>
+
+<!-- How to Register Section -->
+<div class="how-to-register">
+    <h3>How to Register</h3>
+    <div class="steps">
+        <div class="step">
+            <img src="image1.jpg" alt="Step 1">
+            <p>Step 1: Fill in your details including Name, Email, and Phone number.</p>
+        </div>
+        <div class="step">
+            <img src="image2.jpg" alt="Step 2">
+            <p>Step 2: Select your account type (Buyer/Seller).</p>
+        </div>
+        <div class="step">
+            <img src="image3.jpg" alt="Step 3">
+            <p>Step 3: Click the "Submit" button to complete the registration.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendEmail() {
+        var name = document.getElementById('name').value;
+        var emailFrom = document.getElementById('emailFrom').value;
+        var emailTo = document.getElementById('emailTo').value;
+        var phone = document.getElementById('phone').value;
+        var accountType = document.getElementById('accountType').value;
+
+        var subject = 'Register Form';
+        var body = 'Name: ' + name + '%0D%0A' +
+                   'Email (from): ' + emailFrom + '%0D%0A' +
+                   'Email (You email on this account): ' + emailTo + '%0D%0A' +
+                   'Phone number: ' + phone + '%0D%0A' +
+                   'Account type: ' + accountType + '%0D%0A';
+
+        // মোবাইলের জন্য mailto লিঙ্ক
+        var mailtoLink = 'mailto:' + encodeURIComponent(emailTo) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+        // পিসি ব্যবহারকারীদের জন্য গুগল মেইল কম্পোজ লিঙ্ক
+        if (window.innerWidth > 600) {
+            mailtoLink = 'https://mail.google.com/mail/u/0/#inbox?compose=new&to=' + encodeURIComponent(emailTo) + '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        }
+
+        window.location.href = mailtoLink;
+
+        return false; // ডিফল্ট ফর্ম সাবমিশন বন্ধ করে
+    }
+
+    function copyFormData() {
+        var name = document.getElementById('name').value.trim();
+        var emailFrom = document.getElementById('emailFrom').value.trim();
+        var emailTo = document.getElementById('emailTo').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var accountType = document.getElementById('accountType').value.trim();
+
+        if (!name || !emailFrom || !emailTo || !phone || !accountType) {
+            alert('Please fill in all the details!');
+            return;
+        }
+
+        var copyText = 'Name: ' + name + '\n' +
+                       'Email (from): ' + emailFrom + '\n' +
+                       'Email (You email on this account): ' + emailTo + '\n' +
+                       'Phone number: ' + phone + '\n' +
+                       'Account type: ' + accountType;
+
+        var textArea = document.createElement('textarea');
+        textArea.value = copyText;
+        document.body.appendChild(textArea);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        document.body.removeChild(textArea);
+
+        document.getElementById('submitButton').disabled = false;
+
+        alert('Form data copied!');
+    }
+</script>
+
+</body>
+</html>
